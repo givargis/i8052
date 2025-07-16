@@ -1,0 +1,30 @@
+# Intel 8052 RTL Model
+
+The 8052 is an 8-bit microcontroller originally developed by Intel in 1980.
+I've recently resurrected an old project that I started during my time as a
+PhD student in 1999. Back then, I needed some synthesizable models, and the
+8052 seemed like a suitable candidate.
+
+I'm now creating a new repository for this project and plan to make minor
+improvements to the original model, as time permits.
+
+## Packages
+
+$ brew update
+$ brew upgrade
+$ brew install nvc
+$ brew install sdcc
+$ brew install emacs
+
+## Testing
+
+; replace cast.hex with any of the other test programs
+
+$ cd test/
+$ make
+$ cd ../utils
+$ make
+$ ./mkrom ../test/cast.hex
+$ mv i8051_rom.vhd ../src
+$ cd ../src
+$ ./sim
