@@ -320,11 +320,15 @@ begin
               exe_state <= ES_5;
 
             when ES_5 =>
+              exe_state <= ES_6;
+
+            when ES_6 =>
+              exe_state <= ES_7;
+
+            when ES_7 =>
+              SHUT_DOWN_ALU;
               cpu_state <= CS_1;
               exe_state <= ES_0;
-
-            when others =>
-              null;
           end case;
 
         --
@@ -4869,7 +4873,8 @@ begin
                   exe_state <= ES_0;
               end case;
 
-            when others => null;
+            when others =>
+              null;
           end case;
       end case;
     end if;
