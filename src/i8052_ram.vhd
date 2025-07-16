@@ -57,7 +57,6 @@ end I8052_RAM;
 architecture BEHAVIORAL of I8052_RAM is
   type RAM_TYPE is array (0 to 255) of UNSIGNED (7 downto 0);
   signal ram: RAM_TYPE;
-  signal sfr_p0  : UNSIGNED (7 downto 0);
   signal sfr_sp  : UNSIGNED (7 downto 0);
   signal sfr_dpl : UNSIGNED (7 downto 0);
   signal sfr_dph : UNSIGNED (7 downto 0);
@@ -68,12 +67,9 @@ architecture BEHAVIORAL of I8052_RAM is
   signal sfr_tl1 : UNSIGNED (7 downto 0);
   signal sfr_th0 : UNSIGNED (7 downto 0);
   signal sfr_th1 : UNSIGNED (7 downto 0);
-  signal sfr_p1  : UNSIGNED (7 downto 0);
   signal sfr_scon: UNSIGNED (7 downto 0);
   signal sfr_sbuf: UNSIGNED (7 downto 0);
-  signal sfr_p2  : UNSIGNED (7 downto 0);
   signal sfr_ie  : UNSIGNED (7 downto 0);
-  signal sfr_p3  : UNSIGNED (7 downto 0);
   signal sfr_ip  : UNSIGNED (7 downto 0);
   signal sfr_psw : UNSIGNED (7 downto 0);
   signal sfr_a   : UNSIGNED (7 downto 0);
@@ -86,7 +82,10 @@ begin
     begin
       if (d = '1' and a(7) = '1') then
         case a is
-          when R_P0   => v := sfr_p0;
+          when R_P0   => v := p0_in;
+          when R_P1   => v := p1_in;
+          when R_P2   => v := p2_in;
+          when R_P3   => v := p3_in;
           when R_SP   => v := sfr_sp;
           when R_DPL  => v := sfr_dpl;
           when R_DPH  => v := sfr_dph;
@@ -97,12 +96,9 @@ begin
           when R_TL1  => v := sfr_tl1;
           when R_TH0  => v := sfr_th0;
           when R_TH1  => v := sfr_th1;
-          when R_P1   => v := sfr_p1;
           when R_SCON => v := sfr_scon;
           when R_SBUF => v := sfr_sbuf;
-          when R_P2   => v := sfr_p2;
           when R_IE   => v := sfr_ie;
-          when R_P3   => v := sfr_p3;
           when R_IP   => v := sfr_ip;
           when R_PSW  => v := sfr_psw;
           when R_A    => v := sfr_a;
@@ -120,7 +116,10 @@ begin
     begin
       if (d = '1' and a(7) = '1') then
         case a is
-          when R_P0   => sfr_p0 <= v;
+          when R_P0   => p0_out <= v;
+          when R_P1   => p1_out <= v;
+          when R_P2   => p2_out <= v;
+          when R_P3   => p3_out <= v;
           when R_SP   => sfr_sp <= v;
           when R_DPL  => sfr_dpl <= v;
           when R_DPH  => sfr_dph <= v;
@@ -131,12 +130,9 @@ begin
           when R_TL1  => sfr_tl1 <= v;
           when R_TH0  => sfr_th0 <= v;
           when R_TH1  => sfr_th1 <= v;
-          when R_P1   => sfr_p1 <= v;
           when R_SCON => sfr_scon <= v;
           when R_SBUF => sfr_sbuf <= v;
-          when R_P2   => sfr_p2 <= v;
           when R_IE   => sfr_ie <= v;
-          when R_P3   => sfr_p3 <= v;
           when R_IP   => sfr_ip <= v;
           when R_PSW  => sfr_psw <= v;
           when R_A    => sfr_a <= v;
@@ -158,13 +154,13 @@ begin
       if (d = '1' and a(7) = '1') then
         t := a(7 downto 3) & "000";
         case t is
-          when R_P0   => v := sfr_p0(j);
+          when R_P0   => v := p0_in(j);
+          when R_P1   => v := p1_in(j);
+          when R_P2   => v := p2_in(j);
+          when R_P3   => v := p3_in(j);
           when R_TCON => v := sfr_tcon(j);
-          when R_P1   => v := sfr_p1(j);
           when R_SCON => v := sfr_scon(j);
-          when R_P2   => v := sfr_p2(j);
           when R_IE   => v := sfr_ie(j);
-          when R_P3   => v := sfr_p3(j);
           when R_IP   => v := sfr_ip(j);
           when R_PSW  => v := sfr_psw(j);
           when R_A    => v := sfr_a(j);
@@ -187,13 +183,13 @@ begin
       if (d = '1' and a(7) = '1') then
         t := a(7 downto 3) & "000";
         case t is
-          when R_P0   => sfr_p0(j) <= v;
+          when R_P0   => p0_out(j) <= v;
+          when R_P1   => p1_out(j) <= v;
+          when R_P2   => p2_out(j) <= v;
+          when R_P3   => p3_out(j) <= v;
           when R_TCON => sfr_tcon(j) <= v;
-          when R_P1   => sfr_p1(j) <= v;
           when R_SCON => sfr_scon(j) <= v;
-          when R_P2   => sfr_p2(j) <= v;
           when R_IE   => sfr_ie(j) <= v;
-          when R_P3   => sfr_p3(j) <= v;
           when R_IP   => sfr_ip(j) <= v;
           when R_PSW  => sfr_psw(j) <= v;
           when R_A    => sfr_a(j) <= v;
@@ -213,7 +209,6 @@ begin
       for i in 0 to 255 loop
         ram(i) <= CD_8;
       end loop;
-      sfr_p0 <= C0_8;
       sfr_sp <= C0_8;
       sfr_dpl <= C0_8;
       sfr_dph <= C0_8;
@@ -224,16 +219,17 @@ begin
       sfr_tl1 <= C0_8;
       sfr_th0 <= C0_8;
       sfr_th1 <= C0_8;
-      sfr_p1 <= C0_8;
       sfr_scon <= C0_8;
       sfr_sbuf <= C0_8;
-      sfr_p2 <= C0_8;
       sfr_ie <= C0_8;
-      sfr_p3 <= C0_8;
       sfr_ip <= C0_8;
       sfr_psw <= C0_8;
       sfr_a <= C0_8;
       sfr_b <= C0_8;
+      p0_out <= CM_8;
+      p1_out <= CM_8;
+      p2_out <= CM_8;
+      p3_out <= CM_8;
       data_out <= CD_8;
       bit_data_out <= '-';
     elsif (clk'event and clk = '1') then
@@ -253,9 +249,5 @@ begin
         end if;
       end if;
     end if;
-    p0_out <= sfr_p0;
-    p1_out <= sfr_p1;
-    p2_out <= sfr_p2;
-    p3_out <= sfr_p3;
   end process;
 end BEHAVIORAL;
