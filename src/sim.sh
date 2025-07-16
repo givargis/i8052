@@ -7,7 +7,6 @@ nvc -a i8052_xrm.vhd
 nvc -a i8052_rom.vhd
 nvc -a i8052_alu.vhd
 nvc -a i8052_ctr.vhd
-nvc -a i8052_dbg.vhd
 nvc -a i8052_top.vhd
 nvc -a i8052_tsb.vhd
 

@@ -144,5 +144,4 @@ begin
                                              alu_des_cy,
                                              alu_des_ac,
                                              alu_des_ov);
-  I8052_DBG: entity WORK.I8052_DBG port map (dec_opc_in);
 end STRUCTURAL;

@@ -15,7 +15,7 @@ all: $(HEX)
 	packihx $< > $@
 
 %.ihx: %.c
-	sdcc --std=c99 -mmcs51 $<
+	sdcc --std=c99 $<
 
 clean:
 	rm -f *.hex *~ *#
