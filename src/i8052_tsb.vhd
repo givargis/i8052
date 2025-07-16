@@ -19,7 +19,7 @@ architecture BEHAVIORAL of I8052_TSB is
   signal clk     : STD_LOGIC := '0';
   signal addr    : UNSIGNED (15 downto 0);
   signal data_out: UNSIGNED (7 downto 0);
-  signal in_data : UNSIGNED (7 downto 0);
+  signal data_in : UNSIGNED (7 downto 0);
   signal rd      : STD_LOGIC;
   signal wr      : STD_LOGIC;
   signal p0_in   : UNSIGNED (7 downto 0);
@@ -37,7 +37,7 @@ begin
                                              clk,
                                              addr,
                                              data_out,
-                                             in_data,
+                                             data_in,
                                              rd,
                                              wr,
                                              p0_in,
@@ -52,7 +52,7 @@ begin
                                              clk,
                                              addr,
                                              data_out,
-                                             in_data,
+                                             data_in,
                                              rd,
                                              wr);
   process (p0_out, p1_out, p2_out, p3_out)

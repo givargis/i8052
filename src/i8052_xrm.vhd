@@ -14,7 +14,7 @@ use WORK.I8052_PKG.all;
 -- rst     : active low
 -- clk     : rising edge
 -- addr    : address of XRAM being requested
--- in_data : data sent to XRAM
+-- data_in : data sent to XRAM
 -- data_out: data received from XRAM
 -- rd      : requesting XRAM read
 -- wr      : requesting XRAM write
@@ -25,7 +25,7 @@ entity I8052_XRM is
   port(rst     : in  STD_LOGIC;
        clk     : in  STD_LOGIC;
        addr    : in  UNSIGNED (15 downto 0);
-       in_data : in  UNSIGNED (7 downto 0);
+       data_in : in  UNSIGNED (7 downto 0);
        data_out: out UNSIGNED (7 downto 0);
        rd      : in  STD_LOGIC;
        wr      : in  STD_LOGIC);
@@ -46,7 +46,7 @@ begin
       if (rd = '1' and conv_integer(addr) < storage_size) then
         data_out <= xrm(conv_integer(addr));
       elsif (wr = '1' and conv_integer(addr) < storage_size) then
-        xrm(conv_integer(addr)) <= in_data;
+        xrm(conv_integer(addr)) <= data_in;
       end if;
     end if;
   end process;

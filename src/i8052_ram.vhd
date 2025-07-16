@@ -14,7 +14,7 @@ use WORK.I8052_PKG.all;
 -- rst         : active high
 -- clk         : rising edge
 -- addr        : address of RAM/REG being requested
--- in_data     : data sent to RAM/REG
+-- data_in     : data sent to RAM/REG
 -- data_out    : data received from RAM/REG
 -- bit_data_in : bit-data sent to RAM/REG
 -- bit_data_out: bit-data received from RAM/REG
@@ -36,7 +36,7 @@ entity I8052_RAM is
   port(rst         : in  STD_LOGIC;
        clk         : in  STD_LOGIC;
        addr        : in  UNSIGNED (7 downto 0);
-       in_data     : in  UNSIGNED (7 downto 0);
+       data_in     : in  UNSIGNED (7 downto 0);
        data_out    : out UNSIGNED (7 downto 0);
        bit_data_in : in  STD_LOGIC;
        bit_data_out: out STD_LOGIC;
@@ -245,7 +245,7 @@ begin
         if (bitaddr = '1') then
           SET_BIT(addr, bit_data_in, direct);
         else
-          SET_BYTE(addr, in_data, direct);
+          SET_BYTE(addr, data_in, direct);
         end if;
       end if;
     end if;
