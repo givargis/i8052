@@ -18,7 +18,7 @@ architecture BEHAVIORAL of I8052_TSB is
   signal rst     : STD_LOGIC := '1';
   signal clk     : STD_LOGIC := '0';
   signal addr    : UNSIGNED (15 downto 0);
-  signal out_data: UNSIGNED (7 downto 0);
+  signal data_out: UNSIGNED (7 downto 0);
   signal in_data : UNSIGNED (7 downto 0);
   signal rd      : STD_LOGIC;
   signal wr      : STD_LOGIC;
@@ -36,7 +36,7 @@ begin
   I8052_TOP: entity WORK.I8052_TOP port map (rst,
                                              clk,
                                              addr,
-                                             out_data,
+                                             data_out,
                                              in_data,
                                              rd,
                                              wr,
@@ -51,7 +51,7 @@ begin
   I8052_XRM: entity WORK.I8052_XRM port map (rst,
                                              clk,
                                              addr,
-                                             out_data,
+                                             data_out,
                                              in_data,
                                              rd,
                                              wr);

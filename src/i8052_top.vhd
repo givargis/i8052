@@ -14,8 +14,8 @@ use WORK.I8052_PKG.all;
 -- rst         : active high
 -- clk         : rising edge
 -- xrm_addr    : address of XRAM being requested
--- xrm_out_data: data sent to XRAM
--- xrm_in_data : data received from XRAM
+-- xrm_data_out: data sent to XRAM
+-- xrm_data_in : data received from XRAM
 -- xrm_rd      : requesting XRAM read
 -- xrm_wr      : requesting XRAM write
 -- p0_in       : port 0's input
@@ -29,49 +29,49 @@ use WORK.I8052_PKG.all;
 --
 
 entity I8052_TOP is
-  port(rst         : in  STD_LOGIC;
-       clk         : in  STD_LOGIC;
-       xrm_addr    : out UNSIGNED (15 downto 0);
-       xrm_out_data: out UNSIGNED (7 downto 0);
-       xrm_in_data : in  UNSIGNED (7 downto 0);
-       xrm_rd      : out STD_LOGIC;
-       xrm_wr      : out STD_LOGIC;
-       p0_in       : in  UNSIGNED (7 downto 0);
-       p0_out      : out UNSIGNED (7 downto 0);
-       p1_in       : in  UNSIGNED (7 downto 0);
-       p1_out      : out UNSIGNED (7 downto 0);
-       p2_in       : in  UNSIGNED (7 downto 0);
-       p2_out      : out UNSIGNED (7 downto 0);
-       p3_in       : in  UNSIGNED (7 downto 0);
-       p3_out      : out UNSIGNED (7 downto 0));
+  port(rst         : in  std_logic;
+       clk         : in  std_logic;
+       xrm_addr    : out unsigned (15 downto 0);
+       xrm_data_out: out unsigned (7 downto 0);
+       xrm_data_in : in  unsigned (7 downto 0);
+       xrm_rd      : out std_logic;
+       xrm_wr      : out std_logic;
+       p0_in       : in  unsigned (7 downto 0);
+       p0_out      : out unsigned (7 downto 0);
+       p1_in       : in  unsigned (7 downto 0);
+       p1_out      : out unsigned (7 downto 0);
+       p2_in       : in  unsigned (7 downto 0);
+       p2_out      : out unsigned (7 downto 0);
+       p3_in       : in  unsigned (7 downto 0);
+       p3_out      : out unsigned (7 downto 0));
 end I8052_TOP;
 
 architecture STRUCTURAL of I8052_TOP is
-  signal rom_addr        : UNSIGNED (11 downto 0);
-  signal rom_data        : UNSIGNED (7 downto 0);
-  signal rom_rd          : STD_LOGIC;
-  signal ram_addr        : UNSIGNED (7 downto 0);
-  signal ram_out_data    : UNSIGNED (7 downto 0);
-  signal ram_in_data     : UNSIGNED (7 downto 0);
-  signal ram_out_bit_data: STD_LOGIC;
-  signal ram_in_bit_data : STD_LOGIC;
-  signal ram_rd          : STD_LOGIC;
-  signal ram_wr          : STD_LOGIC;
-  signal ram_direct      : STD_LOGIC;
-  signal ram_bitaddr     : STD_LOGIC;
-  signal dec_opc_out     : UNSIGNED (7 downto 0);
-  signal dec_opc_in      : UNSIGNED (8 downto 0);
-  signal alu_opc         : UNSIGNED (3 downto 0);
-  signal alu_src_1       : UNSIGNED (7 downto 0);
-  signal alu_src_2       : UNSIGNED (7 downto 0);
-  signal alu_src_3       : UNSIGNED (7 downto 0);
-  signal alu_src_cy      : STD_LOGIC;
-  signal alu_src_ac      : STD_LOGIC;
-  signal alu_des_1       : UNSIGNED (7 downto 0);
-  signal alu_des_2       : UNSIGNED (7 downto 0);
-  signal alu_des_cy      : STD_LOGIC;
-  signal alu_des_ac      : STD_LOGIC;
-  signal alu_des_ov      : STD_LOGIC;
+  signal rom_addr        : unsigned (11 downto 0);
+  signal rom_data        : unsigned (7 downto 0);
+  signal rom_rd          : std_logic;
+  signal ram_addr        : unsigned (7 downto 0);
+  signal ram_data_out    : unsigned (7 downto 0);
+  signal ram_data_in     : unsigned (7 downto 0);
+  signal ram_bit_data_out: std_logic;
+  signal ram_bit_data_in : std_logic;
+  signal ram_rd          : std_logic;
+  signal ram_wr          : std_logic;
+  signal ram_direct      : std_logic;
+  signal ram_bitaddr     : std_logic;
+  signal dec_opc_out     : unsigned (7 downto 0);
+  signal dec_opc_in      : unsigned (8 downto 0);
+  signal alu_opc         : unsigned (3 downto 0);
+  signal alu_src_1       : unsigned (7 downto 0);
+  signal alu_src_2       : unsigned (7 downto 0);
+  signal alu_src_3       : unsigned (7 downto 0);
+  signal alu_src_cy      : std_logic;
+  signal alu_src_ac      : std_logic;
+  signal alu_des_1       : unsigned (7 downto 0);
+  signal alu_des_2       : unsigned (7 downto 0);
+  signal alu_des_cy      : std_logic;
+  signal alu_des_ac      : std_logic;
+  signal alu_des_ov      : std_logic;
 begin
   I8052_ALU: entity WORK.I8052_ALU port map (rst,
                                              alu_opc,
@@ -91,10 +91,10 @@ begin
   I8052_RAM: entity WORK.I8052_RAM port map (rst,
                                              clk,
                                              ram_addr,
-                                             ram_out_data,
-                                             ram_in_data,
-                                             ram_out_bit_data,
-                                             ram_in_bit_data,
+                                             ram_data_out,
+                                             ram_data_in,
+                                             ram_bit_data_out,
+                                             ram_bit_data_in,
                                              ram_rd,
                                              ram_wr,
                                              ram_direct,
@@ -118,17 +118,17 @@ begin
                                              rom_data,
                                              rom_rd,
                                              ram_addr,
-                                             ram_out_data,
-                                             ram_in_data,
-                                             ram_out_bit_data,
-                                             ram_in_bit_data,
+                                             ram_data_out,
+                                             ram_data_in,
+                                             ram_bit_data_out,
+                                             ram_bit_data_in,
                                              ram_rd,
                                              ram_wr,
                                              ram_direct,
                                              ram_bitaddr,
                                              xrm_addr,
-                                             xrm_out_data,
-                                             xrm_in_data,
+                                             xrm_data_out,
+                                             xrm_data_in,
                                              xrm_rd,
                                              xrm_wr,
                                              dec_opc_out,

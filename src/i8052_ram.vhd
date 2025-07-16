@@ -15,9 +15,9 @@ use WORK.I8052_PKG.all;
 -- clk         : rising edge
 -- addr        : address of RAM/REG being requested
 -- in_data     : data sent to RAM/REG
--- out_data    : data received from RAM/REG
--- in_bit_data : bit-data sent to RAM/REG
--- out_bit_data: bit-data received from RAM/REG
+-- data_out    : data received from RAM/REG
+-- bit_data_in : bit-data sent to RAM/REG
+-- bit_data_out: bit-data received from RAM/REG
 -- rd          : requesting RAM/REG read
 -- wr          : requesting RAM/REG write
 -- direct      : requesting direct RAM/REG data/bit-data
@@ -37,9 +37,9 @@ entity I8052_RAM is
        clk         : in  STD_LOGIC;
        addr        : in  UNSIGNED (7 downto 0);
        in_data     : in  UNSIGNED (7 downto 0);
-       out_data    : out UNSIGNED (7 downto 0);
-       in_bit_data : in  STD_LOGIC;
-       out_bit_data: out STD_LOGIC;
+       data_out    : out UNSIGNED (7 downto 0);
+       bit_data_in : in  STD_LOGIC;
+       bit_data_out: out STD_LOGIC;
        rd          : in  STD_LOGIC;
        wr          : in  STD_LOGIC;
        direct      : in  STD_LOGIC;
@@ -213,8 +213,8 @@ begin
       for i in 0 to 255 loop
         ram(i) <= CD_8;
       end loop;
-      sfr_p0 <= CM_8;
-      sfr_sp <= C7_8;
+      sfr_p0 <= C0_8;
+      sfr_sp <= C0_8;
       sfr_dpl <= C0_8;
       sfr_dph <= C0_8;
       sfr_pcon <= C0_8;
@@ -224,30 +224,30 @@ begin
       sfr_tl1 <= C0_8;
       sfr_th0 <= C0_8;
       sfr_th1 <= C0_8;
-      sfr_p1 <= CM_8;
+      sfr_p1 <= C0_8;
       sfr_scon <= C0_8;
-      sfr_sbuf <= CD_8;
-      sfr_p2 <= CM_8;
+      sfr_sbuf <= C0_8;
+      sfr_p2 <= C0_8;
       sfr_ie <= C0_8;
-      sfr_p3 <= CM_8;
+      sfr_p3 <= C0_8;
       sfr_ip <= C0_8;
       sfr_psw <= C0_8;
       sfr_a <= C0_8;
       sfr_b <= C0_8;
-      out_data <= CD_8;
-      out_bit_data <= '-';
+      data_out <= CD_8;
+      bit_data_out <= '-';
     elsif (clk'event and clk = '1') then
       if (rd = '1') then
         if (bitaddr = '1') then
           GET_BIT(addr, v1, direct);
-          out_bit_data <= v1;
+          bit_data_out <= v1;
         else
           GET_BYTE(addr, v8, direct);
-          out_data <= v8;
+          data_out <= v8;
         end if;
       elsif (wr = '1') then
         if (bitaddr = '1') then
-          SET_BIT(addr, in_bit_data, direct);
+          SET_BIT(addr, bit_data_in, direct);
         else
           SET_BYTE(addr, in_data, direct);
         end if;
