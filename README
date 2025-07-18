@@ -12,8 +12,5 @@ improvements to the original model, as time permits.
 
 Packages
 
-$ brew update
-$ brew upgrade
 $ brew install nvc
 $ brew install sdcc
-$ brew install emacs
