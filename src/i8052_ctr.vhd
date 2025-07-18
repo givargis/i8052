@@ -319,13 +319,7 @@ begin
               START_WR_RAM(R_SP, '1');
               exe_state <= ES_5;
 
-            when ES_5 =>
-              exe_state <= ES_6;
-
-            when ES_6 =>
-              exe_state <= ES_7;
-
-            when ES_7 =>
+            when others =>
               SHUT_DOWN_ALU;
               cpu_state <= CS_1;
               exe_state <= ES_0;
@@ -336,7 +330,6 @@ begin
         --
         when CS_1 =>
           cpu_state <= CS_2;
-          exe_state <= ES_0;
 
         --
         -- process instructions
@@ -397,7 +390,7 @@ begin
               reg_op3 <= rom_data;
               exe_state <= ES_7;
 
-            when ES_7 =>
+            when others =>
               SHUT_DOWN_ALU;
               cpu_state <= CS_3;
               exe_state <= ES_0;
@@ -457,7 +450,7 @@ begin
                   SET_PC_2(reg_op1(7 downto 5), reg_op2);
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -497,13 +490,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -542,13 +529,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -595,7 +576,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -627,19 +608,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -679,13 +648,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -724,13 +687,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -777,7 +734,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -809,19 +766,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -836,25 +781,7 @@ begin
                   SET_PC_2(reg_op1(7 downto 5), reg_op2);
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -884,16 +811,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -922,16 +840,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -968,10 +877,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_6;
 
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -993,22 +899,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1037,16 +928,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1075,16 +957,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1112,16 +985,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1149,16 +1013,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1209,13 +1064,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1259,19 +1108,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1323,13 +1160,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1388,7 +1219,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1404,25 +1235,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1443,22 +1256,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1474,25 +1272,7 @@ begin
                   START_WR_BIT_RAM(reg_op2, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1513,22 +1293,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1549,22 +1314,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1587,19 +1337,7 @@ begin
                   START_WR_BIT_RAM(reg_op2, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1629,19 +1367,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1664,22 +1390,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1711,16 +1422,7 @@ begin
                   START_WR_RAM(v8, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1750,16 +1452,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1799,10 +1492,7 @@ begin
                   START_WR_RAM(ram_data_in, '0');
                   exe_state <= ES_6;
 
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1846,7 +1536,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1894,13 +1584,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1946,13 +1630,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -1975,22 +1653,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2022,16 +1685,7 @@ begin
                   START_WR_RAM(v8, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2061,16 +1715,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2111,10 +1756,7 @@ begin
                   START_WR_RAM(ram_data_in, '0');
                   exe_state <= ES_6;
 
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2154,13 +1796,7 @@ begin
                   START_WR_RAM(R_DPH, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2196,16 +1832,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2244,16 +1871,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2282,22 +1900,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2330,13 +1933,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2372,16 +1969,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2410,22 +1998,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2454,22 +2027,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2498,22 +2056,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2567,7 +2110,7 @@ begin
                   SET_PC_1(reg_op2, reg_op3);
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2582,25 +2125,7 @@ begin
                   SET_PC_1(reg_op2, reg_op3);
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2624,19 +2149,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2659,19 +2172,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2702,13 +2203,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2724,25 +2219,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2759,25 +2236,7 @@ begin
                   START_WR_RAM(v8, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2801,19 +2260,7 @@ begin
                   START_WR_RAM(v8, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2830,25 +2277,7 @@ begin
                   START_WR_RAM(v8, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2864,25 +2293,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2906,19 +2317,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2941,19 +2340,7 @@ begin
                   START_WR_RAM(reg_op3, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -2984,13 +2371,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3006,25 +2387,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3048,19 +2411,7 @@ begin
                   START_WR_RAM(ram_data_in, '0');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3089,16 +2440,7 @@ begin
                   START_WR_RAM(ram_data_in, '0');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3122,19 +2464,7 @@ begin
                   START_WR_RAM(ram_data_in, '0');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3162,16 +2492,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3187,25 +2508,7 @@ begin
                   START_WR_BIT_RAM(reg_op2, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3227,22 +2530,7 @@ begin
                   START_WR_RAM(R_DPL, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3283,7 +2571,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3315,16 +2603,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3355,13 +2634,7 @@ begin
                   START_WR_RAM(REG_ACC, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3402,7 +2675,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3426,19 +2699,7 @@ begin
                   START_WR_XRM("00000000" & ram_data_in);
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3472,13 +2733,7 @@ begin
                   START_WR_XRM(alu_des_2 & alu_des_1);
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3522,7 +2777,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3532,33 +2787,8 @@ begin
             -- no operation
             --
             when OPC_NOP =>
-              case exe_state is
-                when ES_0 =>
-                  exe_state <= ES_1;
-
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
-                  SHUT_DOWN_ALU;
-                  cpu_state <= CS_1;
-                  exe_state <= ES_0;
-              end case;
+              cpu_state <= CS_1;
+              exe_state <= ES_0;
 
             --
             -- acc <- acc || (r)
@@ -3584,16 +2814,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3622,16 +2843,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3668,10 +2880,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_6;
 
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3693,22 +2902,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3737,16 +2931,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3775,16 +2960,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3812,16 +2988,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3849,16 +3016,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3895,13 +3053,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3938,13 +3090,7 @@ begin
                   START_WR_RAM(R_SP, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -3994,7 +3140,7 @@ begin
                   START_WR_RAM(R_SP, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4015,22 +3161,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4059,19 +3190,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4092,22 +3211,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4136,19 +3240,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4169,22 +3261,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4200,25 +3277,7 @@ begin
                   START_WR_BIT_RAM(reg_op2, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4242,22 +3301,7 @@ begin
                   SET_PC_1(alu_des_2, alu_des_1);
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4297,13 +3341,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4342,13 +3380,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4395,7 +3427,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_7;
 
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4427,19 +3459,7 @@ begin
                   START_WR_RAM(R_PSW, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4456,25 +3476,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_1;
 
-                when ES_1 =>
-                  exe_state <= ES_2;
-
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4501,19 +3503,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4538,19 +3528,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_3;
 
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4583,13 +3561,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_5;
 
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4634,10 +3606,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_6;
 
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4667,16 +3636,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4705,16 +3665,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4751,10 +3702,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_6;
 
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4776,22 +3724,7 @@ begin
                   START_WR_RAM(R_A, '1');
                   exe_state <= ES_2;
 
-                when ES_2 =>
-                  exe_state <= ES_3;
-
-                when ES_3 =>
-                  exe_state <= ES_4;
-
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4820,16 +3753,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
@@ -4858,16 +3782,7 @@ begin
                   START_WR_RAM(reg_op2, '1');
                   exe_state <= ES_4;
 
-                when ES_4 =>
-                  exe_state <= ES_5;
-
-                when ES_5 =>
-                  exe_state <= ES_6;
-
-                when ES_6 =>
-                  exe_state <= ES_7;
-
-                when ES_7 =>
+                when others =>
                   SHUT_DOWN_ALU;
                   cpu_state <= CS_1;
                   exe_state <= ES_0;
