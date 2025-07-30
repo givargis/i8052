@@ -1,0 +1,17 @@
+Intel 8052 RTL Model
+
+Copyright (c) Tony Givargis, 1999-2025
+givargis@uci.edu
+
+The 8052 is an 8-bit microcontroller originally developed by Intel in 1980.
+I've recently resurrected an old project that I started during my time as a
+PhD student in 1999. Back then, I needed some synthesizable models, and the
+8052 seemed like a suitable candidate.
+
+I'm now creating a new repository for this project and plan to make minor
+improvements to the original model, as time permits.
+
+Packages
+
+$ brew install nvc
+$ brew install sdcc
